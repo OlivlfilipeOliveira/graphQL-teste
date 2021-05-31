@@ -1,0 +1,26 @@
+type Aluno{
+	id:ID!,
+	nome:String!,
+	curso:String!
+	turma:Turma!
+}
+
+input AlunoInput{
+	id:ID,
+	nome:String!,
+	curso:String!
+	turmaId:ID!
+}
+
+extend type Query{
+	aluno(id:ID!):Aluno
+	
+	alunos:[Aluno]!
+}
+
+extend type Mutation{
+	
+	saveAluno(aluno:AlunoInput!):Aluno!
+	
+	deleteAluno(id:ID!):Boolean!
+}

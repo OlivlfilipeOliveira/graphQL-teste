@@ -1,0 +1,25 @@
+type Turma{
+	id:ID!,
+	nome:String!
+	
+	alunos:[Aluno]!
+}
+
+input TurmaInput{
+	id:ID,
+	nome:String!
+}
+
+extend type Query{
+	
+	turma(id:ID!):Turma
+	
+	turmas:[Turma]!
+}
+
+extend type Mutation{
+	
+	saveTurma(turma:TurmaInput!):Turma!
+	
+	deleteTurma(id:ID!):Boolean!
+}
